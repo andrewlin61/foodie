@@ -3,7 +3,7 @@
 //  Foodie
 //
 //  Created by [Author].
-//  Copyright © 2018 [Company]. All rights reserved.
+//  Copyright Â© 2018 [Company]. All rights reserved.
 //
 
 import React from "react"
@@ -32,12 +32,120 @@ export default class SignIn extends React.Component {
 
 	render() {
 	
-		return (<View
+		return <View
 				style={styles.signInView}>
 				<Image
-					source={require("./../../assets/images/bitmap-3")}
+					source={require("./../../assets/images/bitmap-3.png")}
 					style={styles.bitmapImage}/>
-			</View>)
+				<View
+					style={styles.edittextIconView}>
+					<View
+						pointerEvents="box-none"
+						style={{
+							width: 81,
+							height: 23,
+							marginLeft: 8,
+							alignItems: "flex-start",
+						}}>
+						<Image
+							source={require("./../../assets/images/icon-2.png")}
+							style={styles.iconImage}/>
+						<Text
+							style={styles.PlaceholderText}>Email</Text>
+					</View>
+					<View
+						style={{
+							flex: 1,
+						}}/>
+					<View
+						style={styles.rectangle3View}/>
+				</View>
+				<View
+					style={styles.edittextIconCopyView}>
+					<View
+						pointerEvents="box-none"
+						style={{
+							width: 113,
+							height: 23,
+							marginLeft: 8,
+							flexDirection: "row",
+							alignItems: "flex-start",
+						}}>
+						<Image
+							source={require("./../../assets/images/icon.png")}
+							style={styles.iconTwoImage}/>
+						<Text
+							style={styles.PlaceholderTwoText}>Password</Text>
+					</View>
+					<View
+						style={{
+							flex: 1,
+						}}/>
+					<View
+						style={styles.rectangle3TwoView}/>
+				</View>
+				<View
+					pointerEvents="box-none"
+					style={{
+						alignSelf: "flex-start",
+						width: 241,
+						height: 49,
+						marginLeft: 67,
+						marginTop: 46,
+					}}>
+					<Text
+						style={styles.signInText}>Sign In</Text>
+					<View
+						style={styles.rectangleView}/>
+					<Text
+						style={styles.signInTwoText}>Sign In</Text>
+				</View>
+				<Text
+					style={styles.forgotPasswordText}>Forgot password?</Text>
+				<View
+					style={{
+						flex: 1,
+					}}/>
+				<View
+					style={styles.loginfbView}>
+					<View
+						style={styles.rectangle5View}/>
+					<View
+						pointerEvents="box-none"
+						style={{
+							position: "absolute",
+							left: 0,
+							right: 0,
+							top: 0,
+							bottom: 0,
+							justifyContent: "center",
+						}}>
+						<View
+							style={styles.rectangle5CopyView}/>
+					</View>
+					<View
+						pointerEvents="box-none"
+						style={{
+							position: "absolute",
+							left: 16,
+							right: 10,
+							top: 16,
+							height: 39,
+							flexDirection: "row",
+							alignItems: "center",
+						}}>
+						<Image
+							source={require("./../../assets/images/facebook.png")}
+							style={styles.facebookImage}/>
+						<View
+							style={{
+								flex: 1,
+							}}/>
+						<Text
+							style={styles.signInWithFacebooText}>Sign in with facebook</Text>
+					</View>
+				</View>
+			</View>
 	}
 }
 
@@ -68,7 +176,7 @@ const styles = StyleSheet.create({
 		width: 20,
 		height: 15,
 	},
-	️PlaceholderText: {
+	PlaceholderText: {
 		backgroundColor: "transparent",
 		color: "rgb(212, 212, 212)",
 		fontFamily: ".AppleSystemUIFont",
@@ -98,7 +206,7 @@ const styles = StyleSheet.create({
 		width: 14,
 		height: 20,
 	},
-	️PlaceholderTwoText: {
+	PlaceholderTwoText: {
 		color: "rgb(212, 212, 212)",
 		fontFamily: ".AppleSystemUIFont",
 		fontSize: 16,
