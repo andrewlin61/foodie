@@ -5,6 +5,7 @@ import Profile from './Screens/Profile/Profile.js';
 import Matches from './Screens/Matches/Matches.js';
 import Recipe from './Screens/Recipe/Recipe.js';
 import Swipe from './Screens/Swipe/Swipe.js';
+import Exemple from './Screens/Swipe/test.js';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
