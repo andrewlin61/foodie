@@ -1,5 +1,4 @@
-//
-//  美食个人页
+
 //  Foodie
 //
 //  Created by [Author].
@@ -10,7 +9,7 @@ import React from "react"
 import { Image, StyleSheet, Text, View } from "react-native"
 
 
-export default class 美食个人页 extends React.Component {
+export default class Profile extends React.Component {
 
 	static navigationOptions = ({ navigation }) => {
 	
@@ -33,7 +32,7 @@ export default class 美食个人页 extends React.Component {
 	render() {
 	
 		return <View
-				style={styles.美食个人页View}>
+				style={styles.ProfileView}>
 				<View
 					pointerEvents="box-none"
 					style={{
@@ -114,24 +113,6 @@ export default class 美食个人页 extends React.Component {
 									bottom: 0,
 									justifyContent: "center",
 								}}>
-								<View
-									pointerEvents="box-none"
-									style={{
-										height: 24,
-										flexDirection: "row",
-										alignItems: "center",
-									}}>
-									<Image
-										source={require("./../../assets/images/fill-17.png")}
-										style={styles.fill17Image}/>
-									<View
-										style={{
-											flex: 1,
-										}}/>
-									<Image
-										source={require("./../../assets/images/group-5-3.png")}
-										style={styles.group5Image}/>
-								</View>
 							</View>
 						</View>
 						<Image
@@ -163,7 +144,7 @@ export default class 美食个人页 extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	美食个人页View: {
+	ProfileView: {
 		backgroundColor: "white",
 		flex: 1,
 	},
