@@ -40,7 +40,6 @@ export default class Swipe extends React.Component {
 	}
 
 	componentDidMount() {
-	
 	}
 
 	renderCard = (card, index) => {
@@ -65,83 +64,6 @@ export default class Swipe extends React.Component {
 		</View>
 		)
 	  };
-
-	//not working on rendering navigation bar. try to fix
-	renderNavigation = () => {
-		return(
-			<View
-				pointerEvents="box-none"
-				style={{
-					position: "absolute",
-					left: 0,
-					right: 0,
-					bottom: 0,
-					height: 83,
-				}}>
-				<View
-					pointerEvents="box-none"
-					style={{
-						position: "absolute",
-						alignSelf: "center",
-						width: 325,
-						bottom: 9,
-						height: 48,
-						justifyContent: "flex-end",
-						alignItems: "center",
-					}}>
-					<View
-						style={styles.group14View}>
-						<View
-							pointerEvents="box-none"
-							style={{
-								position: "absolute",
-								alignSelf: "center",
-								top: 0,
-								bottom: 0,
-								justifyContent: "center",
-							}}>
-							<Image
-								source={require("./../../assets/images/item-2-3.png")}
-								style={styles.item2Image}/>
-						</View>
-						<View
-							pointerEvents="box-none"
-							style={{
-								position: "absolute",
-								left: 0,
-								right: 0,
-								top: 0,
-								bottom: 0,
-								justifyContent: "center",
-							}}>
-							<View
-								pointerEvents="box-none"
-								style={{
-									height: 24,
-									flexDirection: "row",
-									alignItems: "center",
-								}}>
-								<Image
-									source={require("./../../assets/images/fill-17-2.png")}
-									style={styles.fill17Image}/>
-								<View
-									style={{
-										flex: 1,
-									}}/>
-								<Image
-									source={require("./../../assets/images/group-5-2.png")}
-									style={styles.group5Image}/>
-							</View>
-						</View>
-					</View>
-					<View
-						style={styles.rectangle24View}/>
-				</View>
-				<Image
-					source={require("./../../assets/images/path-2.png")}
-					style={styles.path2Image}/>
-			</View>)
-	};
 
 	  onSwiped = (type) => {
 		console.log(`on swiped ${type}`)
@@ -256,7 +178,6 @@ export default class Swipe extends React.Component {
 				animateCardOpacity
 				swipeBackCard
 			  >
-				<Button onPress={() => this.swiper.swipeBack()} title='Swipe Back' />
 			  </Swiper>
 			</View>
 		)

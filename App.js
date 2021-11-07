@@ -42,7 +42,7 @@ function MatchesScreen() {
 
 export default function App() {
   return (
-    // <Swipe/>
+
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -67,9 +67,9 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Swipe" component={SwipeScreen} />
-        <Tab.Screen name="Matches" component={MatchesScreen} />
-        <Tab.Screen name="Settings" component={ProfileScreen} />
+        <Tab.Screen name="Swipe" component={SwipeScreen} options={{header: () => null}} />
+        <Tab.Screen name="Matches" component={MatchesScreen} options={{header: () => null}} />
+        <Tab.Screen name="Settings" component={ProfileScreen} options={{header: () => null}} />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -79,7 +79,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FAC898',
     alignItems: 'center',
     justifyContent: 'center',
   },

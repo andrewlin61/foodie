@@ -51,93 +51,28 @@ export default class Profile extends React.Component {
 							style={styles.rectangleBlurView}/>
 						<Image
 							source={require("./../../assets/images/image.png")}
-							style={styles.个人中心背景插画Image}/>
+							style={styles.blob}/>
 						<View
 							style={styles.ovalView}/>
-						<Image
+						{/* <Image
 							source={require("./../../assets/images/group.png")}
-							style={styles.groupImage}/>
+							style={styles.gear}/> */}
 					</View>
 					<View
-						style={styles.group4View}>
+						style={styles.ProfileIconLocation}>
 						<View
 							style={styles.group2View}>
 							<Image
 								source={require("./../../assets/images/bitmap.png")}
-								style={styles.bitmapImage}/>
+								style={styles.ProfileIcon}/>
 						</View>
-						<View
-							style={{
-								flex: 1,
-							}}/>
-						<Text
-							style={styles.alexSuprunText}>Alex Suprun</Text>
-					</View>
-					<View
-						style={{
-							flex: 1,
-						}}/>
-					<View
-						pointerEvents="box-none"
-						style={{
-							height: 121,
-							marginLeft: 119,
-							marginRight: 106,
-						}}>
-						<View
-							style={styles.line2Copy2View}/>
-						<View
-							style={styles.barBlurView}/>
-						<View
-							style={styles.group14View}>
-							<View
-								pointerEvents="box-none"
-								style={{
-									position: "absolute",
-									alignSelf: "center",
-									top: 0,
-									bottom: 0,
-									justifyContent: "center",
-								}}>
-								<Image
-									source={require("./../../assets/images/item-2-2.png")}
-									style={styles.item2Image}/>
-							</View>
-							<View
-								pointerEvents="box-none"
-								style={{
-									position: "absolute",
-									left: 0,
-									right: 0,
-									top: 0,
-									bottom: 0,
-									justifyContent: "center",
-								}}>
-							</View>
-						</View>
-						<Image
-							source={require("./../../assets/images/path-2.png")}
-							style={styles.path2Image}/>
 					</View>
 				</View>
 				<View
 					pointerEvents="box-none"
-					style={{
-						position: "absolute",
-						alignSelf: "center",
-						width: 134,
-						top: 45,
-						bottom: 9,
-						alignItems: "center",
-					}}>
+					style={styles.mineTextStyle}>
 					<Text
-						style={styles.mineText}>Mine</Text>
-					<View
-						style={{
-							flex: 1,
-						}}/>
-					<View
-						style={styles.rectangle24View}/>
+						style={styles.mineText}>Profile</Text>
 				</View>
 			</View>
 	}
@@ -159,45 +94,43 @@ const styles = StyleSheet.create({
 		top: 150,
 		height: 88,
 	},
-	个人中心背景插画Image: {
+	blob: {
 		backgroundColor: "transparent",
 		opacity: 0.65,
 		resizeMode: "cover",
 		position: "absolute",
-		left: 0,
+		left: -150,
 		right: 0,
-		top: 61,
+		top: 250,
 		height: 563,
 	},
 	ovalView: {
 		backgroundColor: "rgb(8, 61, 119)",
-		opacity: 0.44,
+		opacity: 0.24,
 		borderRadius: 139.82,
 		borderWidth: 1,
 		borderColor: "rgb(151, 151, 151)",
 		borderStyle: "solid",
 		position: "absolute",
-		left: 43,
+		left: -150,
 		width: 280,
 		top: 0,
 		height: 280,
 	},
-	groupImage: {
-		resizeMode: "center",
-		backgroundColor: "transparent",
-		position: "absolute",
-		left: 149,
-		width: 24,
-		top: 195,
-		height: 23,
-	},
-	group4View: {
+	// gear: {
+	// 	resizeMode: "center",
+	// 	backgroundColor: "transparent",
+	// 	position: "absolute",
+	// 	left: 149,
+	// 	width: 24,
+	// 	top: 195,
+	// 	height: 23,
+	// },
+	ProfileIconLocation: {
 		backgroundColor: "transparent",
 		alignSelf: "flex-start",
-		width: 91,
-		height: 72,
-		marginLeft: 238,
-		marginTop: 80,
+		marginLeft: -50,
+		marginTop: -435,
 		alignItems: "center",
 	},
 	group2View: {
@@ -213,78 +146,20 @@ const styles = StyleSheet.create({
 		marginTop: 1,
 		justifyContent: "center",
 	},
-	bitmapImage: {
+	ProfileIcon: {
 		backgroundColor: "transparent",
 		resizeMode: "center",
 		width: null,
 		height: 43,
 	},
-	alexSuprunText: {
-		color: "black",
-		fontFamily: ".AppleSystemUIFont",
-		fontSize: 16,
-		fontStyle: "normal",
-		fontWeight: "normal",
-		textAlign: "center",
-		letterSpacing: 0.2,
-		backgroundColor: "transparent",
-		opacity: 0,
-		alignSelf: "stretch",
-		marginBottom: 2,
-	},
-	line2Copy2View: {
-		backgroundColor: "rgb(220, 220, 220)",
-		position: "absolute",
-		left: 43,
-		width: 1,
-		bottom: 0,
-		height: 121,
-	},
-	barBlurView: {
-		backgroundColor: "rgba(255, 255, 255, 0.9)",
-		shadowColor: "rgba(0, 0, 0, 0.12)",
-		shadowRadius: 171,
-		shadowOpacity: 1,
-		position: "absolute",
-		left: 0,
-		right: 0,
-		bottom: 32,
-		height: 83,
-	},
-	group14View: {
-		backgroundColor: "transparent",
+	mineTextStyle: {
 		position: "absolute",
 		alignSelf: "center",
-		width: 325,
-		bottom: 65,
-		height: 24,
-	},
-	item2Image: {
-		backgroundColor: "transparent",
-		resizeMode: "center",
-		width: 23,
-		height: 22,
-	},
-	fill17Image: {
-		backgroundColor: "transparent",
-		resizeMode: "center",
-		width: 20,
-		height: 23,
-	},
-	group5Image: {
-		backgroundColor: "transparent",
-		resizeMode: "center",
-		width: 22,
-		height: 24,
-	},
-	path2Image: {
-		backgroundColor: "transparent",
-		resizeMode: "center",
-		position: "absolute",
-		left: 106,
-		width: 2,
-		bottom: 84,
-		height: 2,
+		right: 20,
+		width: 134,
+		top: 45,
+		bottom: 9,
+		alignItems: "center",
 	},
 	mineText: {
 		color: "white",
@@ -294,11 +169,5 @@ const styles = StyleSheet.create({
 		fontWeight: "normal",
 		textAlign: "center",
 		backgroundColor: "transparent",
-	},
-	rectangle24View: {
-		backgroundColor: "black",
-		borderRadius: 2.5,
-		width: 134,
-		height: 5,
 	},
 })
