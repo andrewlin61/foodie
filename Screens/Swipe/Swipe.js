@@ -104,6 +104,7 @@ export default class Swipe extends React.Component {
 				onSwipedAll={this.onSwipedAllCards}
 				stackSize={3}
 				stackSeparation={15}
+				backgroundColor={'#ff7b57'}
 				overlayLabels={{
 				  bottom: {
 					title: 'Not sure what to do with this yet',
@@ -199,6 +200,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		borderRadius: 4,
 		borderWidth: 2,
+		bottom: 20,
 		borderColor: '#E8E8E8',
 		justifyContent: 'center',
 		backgroundColor: 'white'
