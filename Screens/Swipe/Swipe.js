@@ -9,6 +9,9 @@
 import React, { Component } from "react"
 import { Button, Text, Image, StyleSheet, View } from "react-native"
 import Swiper from 'react-native-deck-swiper'
+import * as SecureStore from 'expo-secure-store';
+
+var Matches = []
 
 function * range (start, end) {
 	for (let i = start; i <= end; i++) {
@@ -32,7 +35,7 @@ export default class Swipe extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			cards: [...range(1, 50)],
+			cards: [{imageURL: "https://www.cs.virginia.edu/~dgg6b/Mobile/Images/PodCastImage3.png"},{imageURL: "https://www.cs.virginia.edu/~dgg6b/Mobile/Images/PodCastImage2.png"}],
 			swipedAllCards: false,
 			swipeDirection: '',
 			cardIndex: 0
@@ -43,6 +46,7 @@ export default class Swipe extends React.Component {
 	}
 
 	renderCard = (card, index) => {
+		console.log( "Card value" + JSON.stringify(card))
 		return (
 		//   <View style={styles.card}>
 		// 	<Text style={styles.text}>{card} - {index}</Text>
@@ -58,7 +62,7 @@ export default class Swipe extends React.Component {
 				justifyContent: "center",
 			}}>
 			<Image
-				source={require("./../../assets/images/bitmap-2.png")}
+				source={{uri: card.imageURL}}
 				style={styles.bitmapImage}/>
 			</View>
 		</View>
@@ -66,7 +70,14 @@ export default class Swipe extends React.Component {
 	  };
 
 	  onSwiped = (type) => {
-		console.log(`on swiped ${type}`)
+		this.setState((state)=>{
+			return {...state,
+				cardIndex: state.cardIndex + 1
+			}
+		})
+		Matches.push(this.state.cardIndex)
+		SecureStore.setItemAsync("Matches", JSON.stringify(Matches))
+		console.log('on swiped ' + JSON.stringify(this.state.cards[this.state.cardIndex]))
 	  }
 	
 	  onSwipedAllCards = () => {
@@ -91,7 +102,7 @@ export default class Swipe extends React.Component {
 				ref={swiper => {
 				  this.swiper = swiper
 				}}
-				onSwiped={() => this.onSwiped('general')}
+				//onSwiped={() => this.onSwiped(this.state.cardIndex)}
 				onSwipedLeft={() => this.onSwiped('left')}
 				onSwipedRight={() => this.onSwiped('right')}
 				onSwipedTop={() => this.onSwiped('top')}
@@ -190,6 +201,11 @@ const styles = StyleSheet.create({
 	SwipeView: {
 		backgroundColor: "white",
 		flex: 1,
+	},
+
+	bitmapImage: {
+		height: 400,
+		width: 200,
 	},
 
 	container: {

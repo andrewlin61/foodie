@@ -11,6 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
+
 const Tab = createBottomTabNavigator()
 
 function SwipeScreen() {
@@ -67,7 +68,7 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Swipe" component={SwipeScreen} options={{header: () => null}} />
+        <Tab.Screen name="Swipe" component={SwipeScreen}  options={{header: () => null}} />
         <Tab.Screen name="Matches" component={MatchesScreen} options={{header: () => null}} />
         <Tab.Screen name="Settings" component={ProfileScreen} options={{header: () => null}} />
       </Tab.Navigator>

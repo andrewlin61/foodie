@@ -8,6 +8,7 @@
 
 import React from "react"
 import { Image, StyleSheet, Text, View } from "react-native"
+import * as SecureStore from 'expo-secure-store';
 
 
 export default class Matches extends React.Component {
@@ -27,11 +28,15 @@ export default class Matches extends React.Component {
 	}
 
 	componentDidMount() {
-	
+		this.matchesFromStorage()
+		console.log("component did mount")
 	}
-
+	async matchesFromStorage(){
+		let Matches = await SecureStore.getItemAsync("Matches")
+		console.log(Matches + "matches from prev")
+	  }
 	render() {
-	
+		
 		return <View
 				style={styles.MatchesView}>
 				<View
@@ -691,7 +696,7 @@ const styles = StyleSheet.create({
 	},
 	parcelsText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -701,7 +706,7 @@ const styles = StyleSheet.create({
 	natnudoBeefText: {
 		backgroundColor: "transparent",
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 12,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -712,7 +717,7 @@ const styles = StyleSheet.create({
 	cattyText: {
 		backgroundColor: "transparent",
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -790,7 +795,7 @@ const styles = StyleSheet.create({
 	parcelsTwoText: {
 		backgroundColor: "transparent",
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -798,7 +803,7 @@ const styles = StyleSheet.create({
 	},
 	natnudoBeefTwoText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 12,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -810,7 +815,7 @@ const styles = StyleSheet.create({
 	cattyTwoText: {
 		backgroundColor: "transparent",
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		////fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -856,7 +861,7 @@ const styles = StyleSheet.create({
 	},
 	parcelsThreeText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -866,7 +871,7 @@ const styles = StyleSheet.create({
 	miniHojasText: {
 		backgroundColor: "transparent",
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 12,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -876,7 +881,7 @@ const styles = StyleSheet.create({
 	},
 	bagText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -954,7 +959,7 @@ const styles = StyleSheet.create({
 	},
 	parcelsFiveText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -963,7 +968,7 @@ const styles = StyleSheet.create({
 	},
 	natnudoBeefFourText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 12,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -974,7 +979,7 @@ const styles = StyleSheet.create({
 	},
 	cattyFourText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -1052,7 +1057,7 @@ const styles = StyleSheet.create({
 	},
 	parcelsFourText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -1061,7 +1066,7 @@ const styles = StyleSheet.create({
 	},
 	natnudoBeefThreeText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 12,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -1073,7 +1078,7 @@ const styles = StyleSheet.create({
 	cattyThreeText: {
 		backgroundColor: "transparent",
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -1150,7 +1155,7 @@ const styles = StyleSheet.create({
 	},
 	parcelsSixText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -1159,7 +1164,7 @@ const styles = StyleSheet.create({
 	},
 	natnudoBeefFiveText: {
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 12,
 		fontStyle: "normal",
 		fontWeight: "normal",
@@ -1171,7 +1176,7 @@ const styles = StyleSheet.create({
 	cattyFiveText: {
 		backgroundColor: "transparent",
 		color: "white",
-		fontFamily: ".AppleSystemUIFont",
+		//fontFamily: ".AppleSystemUIFont",
 		fontSize: 10,
 		fontStyle: "normal",
 		fontWeight: "normal",
