@@ -10,6 +10,7 @@ import React, { Component } from "react"
 import { Button, Text, Image, StyleSheet, View } from "react-native"
 import Swiper from 'react-native-deck-swiper'
 import * as SecureStore from 'expo-secure-store';
+var axios = require("axios").default;
 
 var Matches = []
 
@@ -34,23 +35,47 @@ export default class Swipe extends React.Component {
 	
 	constructor(props) {
 		super(props)
+		var arr = new Array(100)
+		for(let i = 0; i < 100; i++){
+			arr[i] = i;
+		}
 		this.state = {
-			cards: [{imageURL: "https://www.cs.virginia.edu/~dgg6b/Mobile/Images/PodCastImage3.png"},{imageURL: "https://www.cs.virginia.edu/~dgg6b/Mobile/Images/PodCastImage2.png"}],
+			cards: arr,
 			swipedAllCards: false,
 			swipeDirection: '',
 			cardIndex: 0
 		}
+
 	}
 
 	componentDidMount() {
+		var images = []
+		var options = {
+			method: 'GET',
+			url: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=362809ece9194ab5b1bc85fcab4a11b2&number=100',
+			params: {maxRecipes: '100'},
+			headers: {
+			'x-rapidapi-host': 'api.spoonacular.com',
+			'x-rapidapi-key': '362809ece9194ab5b1bc85fcab4a11b2'
+			}
+			};
+	  
+		axios.request(options).then((response) => {
+			if(response && response.data.number > 0){
+				for (let i = 0; i < 100; i++) {
+					images.push({imageURL: response.data.results[i].image});
+				}
+				this.setState({
+					cards: images,
+				})
+			}
+		})
 	}
 
+
 	renderCard = (card, index) => {
-		console.log( "Card value" + JSON.stringify(card))
+		// console.log( "Card value" + JSON.stringify(card))
 		return (
-		//   <View style={styles.card}>
-		// 	<Text style={styles.text}>{card} - {index}</Text>
-		//   </View>
 		<View style={styles.card}>
 			<View
 			pointerEvents="box-none"
@@ -72,12 +97,15 @@ export default class Swipe extends React.Component {
 	  onSwiped = (type) => {
 		this.setState((state)=>{
 			return {...state,
-				cardIndex: state.cardIndex + 1
+				cardIndex: state.cardIndex + 1,
 			}
 		})
+		this.forceUpdate();
+		console.log("total cards", this.state.cards)
+		console.log('card index' + this.state.cardIndex)
 		Matches.push(this.state.cardIndex)
 		SecureStore.setItemAsync("Matches", JSON.stringify(Matches))
-		console.log('on swiped ' + JSON.stringify(this.state.cards[this.state.cardIndex]))
+		console.log('on swiped ' + JSON.stringify(this.state.cards[this.state.cardIndex]))	
 	  }
 	
 	  onSwipedAllCards = () => {
@@ -96,24 +124,24 @@ export default class Swipe extends React.Component {
 	  
 	  
 	render() {
+		const { cards } = this.state;
 		return (
 			<View style={styles.container}>
 			  <Swiper
 				ref={swiper => {
 				  this.swiper = swiper
 				}}
-				//onSwiped={() => this.onSwiped(this.state.cardIndex)}
+				cards={this.state.cards}
 				onSwipedLeft={() => this.onSwiped('left')}
 				onSwipedRight={() => this.onSwiped('right')}
 				onSwipedTop={() => this.onSwiped('top')}
 				onSwipedBottom={() => this.onSwiped('bottom')}
 				onTapCard={this.swipeBack}
-				cards={this.state.cards}
 				cardIndex={this.state.cardIndex}
 				cardVerticalMargin={80}
 				renderCard={this.renderCard}
 				onSwipedAll={this.onSwipedAllCards}
-				stackSize={3}
+				stackSize={10}
 				stackSeparation={15}
 				backgroundColor={'#ff7b57'}
 				overlayLabels={{
@@ -204,8 +232,9 @@ const styles = StyleSheet.create({
 	},
 
 	bitmapImage: {
-		height: 400,
-		width: 200,
+		height: 600,
+		width: 300,
+		resizeMode: 'contain',
 	},
 
 	container: {
