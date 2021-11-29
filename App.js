@@ -1,7 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import SignIn from './Screens/SignIn.js';
-import SignUp from './Screens/SignUp.js';
 import Profile from './Screens/Profile/Profile.js';
 import Matches from './Screens/Matches/Matches.js';
 import Recipe from './Screens/Recipe/Recipe.js';
@@ -11,7 +9,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
